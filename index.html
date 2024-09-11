@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- jQuery UI CSS -->
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="./Acuvate logo1.jfif" type="image/icon type">
+
+</head>
+<body>
+    
+        <!-- Navbar -->
+        <nav  class="navbar navbar-expand-lg navbar-light bg-light ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <!-- <img style="height: 30px;" src="./Acuvate logo.png" alt="Company Logo"> -->
+                    <img style="height: 30px;" src="http://surl.li/dwvphp" alt="Company Logo">
+                </a>
+                <span class="project-title">| BLOG POST</span>
+                <div class="d-flex flex-grow-1 justify-content-center">
+                    <div class="input-group navbar-search">
+                        <input type="search" id="searchInput" class="form-control" placeholder="Filter Author">
+                        <span class="input-group-text">
+                            <i class="bi bi-search"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    
+        <div >
+            
+            <div class="table-buttons d-flex justify-content-end gap-2 mb-3" id="button-title">
+                <!-- New search bar for titles -->
+                <div class="d-flex mb-3">
+                    <input type="text" id="titleSearchInput" class="form-control" placeholder="Search by Title">
+                </div>
+                <!-- Date filter input and button -->
+                <div class="d-flex mb-3">
+                    <input type="date" id="dateFilterInput" class="form-control me-2" placeholder="Filter by Date">
+                    <button class="btn btn-filter" id="filterByDateButton">Filter</button>
+                </div>
+                <!-- Buttons above the table -->
+                <button class="btn btn-new" data-bs-toggle="modal" data-bs-target="#newPostModal"><i class="bi bi-plus"></i> New</button>
+                <button class="btn btn-download" id="downloadButton"><i class="bi bi-download"></i> Download</button>
+            </div>
+            
+            
+            
+            
+            
+            
+            <table id="blogPostsTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="color: black;"></th> <!-- Expand/Collapse Icon Column -->
+                        <th class="hidden">ID</th> <!-- ID column -->
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        
+    
+        <!-- Edit Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Blog Post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editForm">
+                            <div class="mb-3">
+                                <label for="editId" class="form-label">ID</label>
+                                <input type="text" class="form-control" id="editId" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="editTitle" required>
+                                <div class="invalid-feedback">Please enter a title.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editAuthor" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="editAuthor" required>
+                                <div class="invalid-feedback">Please enter an author.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDate" class="form-label">Date Published</label>
+                                <input type="date" class="form-control" id="editDate" required>
+                                <div class="invalid-feedback">Please enter a valid date.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- New Post Modal -->
+        <div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newPostModalLabel">Add New Blog Post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newPostForm">
+                            <div class="mb-3">
+                                <label for="newTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="newTitle" required>
+                                <div class="invalid-feedback">Please enter a title.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newAuthor" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="newAuthor" required>
+                                <div class="invalid-feedback">Please enter an author.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newDate" class="form-label">Date Published</label>
+                                <input type="date" class="form-control" id="newDate" required>
+                                <div class="invalid-feedback">Please enter a valid date.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newContent" class="form-label">Content</label>
+                                <textarea class="form-control" id="newContent" rows="3" required></textarea>
+                                <div class="invalid-feedback">Please enter the content.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- SweetAlert2 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- jQuery UI JS -->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <!-- Bootstrap JS (for modals) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- FileSaver.js for file saving -->
+        <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+        <!-- jsPDF for PDF generation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <!-- xlsx for Excel generation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    
+        <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

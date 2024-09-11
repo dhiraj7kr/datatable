@@ -1,0 +1,251 @@
+/* Base styles */
+
+/* Modal header */
+.modal-header {
+    background-color: #59a5f7; /* Blue background for the header */
+    color: white; /* White text color */
+    border-bottom: 1px solid #86bbf4; /* Slightly darker border */
+}
+
+/* Navbar styling */
+.navbar {
+    box-shadow: inset 0 0 50px #4686ec; /* Subtle shadow for depth */
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.project-title {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar-search {
+    flex: 1;
+    max-width: 500px; /* Adjust maximum width */
+}
+
+#filterByDateButton {
+    color: #fafafa;
+    background-color: #68a6e9;
+}
+
+.input-group .form-control {
+    border-right: none; /* Removes the right border of the input field */
+    border-radius: 20px; /* Rounded corners for the left side */
+}
+
+.input-group-text {
+    background-color: #9fc8f1; /* Light gray background for the search button */
+    border: 1px solid #a3c5e6; /* Matches the border of the input field */
+    border-radius: 20px; /* Rounded corners for the right side */
+    cursor: pointer;
+}
+
+.nav-link i {
+    color: #0c0c0c;
+    transition: color 0.3s;
+}
+
+.nav-link i:hover {
+    color: #050505; /* Darker color on hover */
+}
+
+.details-control {
+    cursor: pointer;
+    color: black;
+    text-align: center;
+}
+
+.small-icon {
+    font-size: 1rem; /* Smaller icon size */
+    color: black; /* Icon color black */
+}
+
+/* Box styling */
+.content-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Animation for content appearance */
+.content-box.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Action column styling */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+}
+
+.action-buttons .btn {
+    padding: 5px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-edit {
+    color: #05702cc7;
+}
+
+.btn-delete {
+    color: #cf2323;
+}
+
+/* Ensure action column is fixed on the right */
+table.dataTable {
+    position: relative;
+}
+
+table.dataTable thead th:last-child,
+table.dataTable tbody td:last-child {
+    position: sticky;
+    right: 0; /* Fixed on the right */
+    z-index: 1;
+}
+
+/* Buttons above the table */
+.table-buttons {
+    margin: 20px;
+}
+
+.btn-new, .btn-download {
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-new {
+    background-color: #68a6e9; /* Blue background */
+    height: 40px;
+    width: 100px;
+}
+
+.btn-download {
+    background-color: #68a6e9; /* Blue background */
+    height: 40px;
+    width: 150px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Table Background and Border Color */
+table.dataTable {
+    background-color: #f0f8ff; /* Light blue background for table */
+    border: 1px solid #dee2e6; /* Light gray border */
+    border-collapse: collapse; /* Ensure borders collapse together */
+}
+
+/* Table Heading Styling */
+table.dataTable thead th {
+    background-color: #93b9ec; /* Blue background for heading */
+    color: black; /* White text color for heading */
+    text-align: center; /* Center align heading text */
+    border: 1px solid #0f0f0e; /* Light gray border */
+    padding: 8px; /* Padding for heading cells */
+}
+
+/* Table Body Styling */
+table.dataTable tbody td {
+    background-color: #e4f6ff; /* White background for table body */
+    color: #131314; /* Dark gray text color */
+    text-align: center; /* Center align table text */
+    border: 1px solid #121212; /* Light gray border for table body */
+    padding: 8px; /* Padding for table body cells */
+}
+
+/* Hover Effect for Table Rows */
+table.dataTable tbody tr:hover {
+    background-color: #e9ecef; /* Light gray background on hover */
+}
+
+/* Media Queries for Responsive Design */
+
+/* For devices with a max-width of 768px (tablets and below) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .navbar-search {
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+        margin-left: 5px;
+    }
+
+    .content-box {
+        padding: 10px;
+    }
+
+    .btn-new, .btn-download {
+        height: 35px;
+        font-size: 14px;
+        width: 100%; /* Full width buttons */
+        margin-bottom: 10px;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        padding: 6px; /* Adjust padding */
+    }
+}
+
+/* For devices with a max-width of 480px (phones) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px;
+    }
+
+    .navbar-brand img {
+        height: 25px; /* Smaller brand logo */
+    }
+
+    .navbar-search {
+        max-width: 100%;
+    }
+
+    .project-title {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+
+    .content-box {
+        padding: 8px;
+    }
+
+    .btn-new, .btn-download {
+        height: 30px;
+        font-size: 13px;
+        width: 100%; /* Full width buttons */
+        margin-bottom: 10px;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        padding: 4px; /* Adjust padding */
+    }
+}
